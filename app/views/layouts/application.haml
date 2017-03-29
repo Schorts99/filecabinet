@@ -11,12 +11,14 @@
     %header
       .header_inner
         = link_to "FileCabinet", root_path, id: 'logo'
+
         %nav
           -if user_signed_in?
             = link_to "Crear documento", new_doc_path
             = link_to "Salir", destroy_user_session_path, method: :delete
           -else
             = link_to "Ingresar", new_user_session_path
+            
     %p.notice= notice
     %p.alert= alert
     = yield
